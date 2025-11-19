@@ -68,7 +68,7 @@
                     <div class="about-content">
                         <div class="about-image">
                             <div class="profile-pic">
-                                <img src="anushka.jpg" alt="Anushka" class="profile-image">
+                                <img src="anushka.jpeg" alt="Anushka" class="profile-image">
                             </div>
                         </div>
                         <div class="about-text">
@@ -875,14 +875,14 @@ const folderHeaders = document.querySelectorAll('.folder-header');
 folderHeaders.forEach(header => {
     header.addEventListener('click', () => {
         const folder = header.getAttribute('data-folder');
-        const content = document.getElementById(${folder}-content);
+        const content = document.getElementById(`${folder}-content`);
         const isActive = header.classList.contains('active');
         // Close all other folders
         folderHeaders.forEach(h => {
             if (h !== header) {
                 h.classList.remove('active');
                 const otherFolder = h.getAttribute('data-folder');
-                const otherContent = document.getElementById(${otherFolder}-content);
+                const otherContent = document.getElementById(`${otherFolder}-content`);
                 otherContent.classList.remove('active');
             }
         });
@@ -973,7 +973,7 @@ folderHeaders.forEach(header => {
         for (let star of stars) {
             ctx.beginPath();
             ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-            ctx.fillStyle = rgba(255, 255, 255, ${star.alpha});
+            ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
             ctx.fill();
             star.x += star.dx;
             star.y += star.dy;
@@ -1020,7 +1020,7 @@ folderHeaders.forEach(header => {
                 s.opacity = Math.sin(s.phase * Math.PI);
                 const tailEnd = Math.max(s.y - s.len, 0);
                 const grd = ctx.createLinearGradient(s.x, s.y, s.x, tailEnd);
-                grd.addColorStop(0, rgba(255,255,255,${s.opacity}));
+                grd.addColorStop(0, `rgba(255,255,255,${s.opacity})`);
                 grd.addColorStop(1, 'rgba(255,255,255,0)');
                 ctx.fillStyle = grd;
                 ctx.fillRect(s.x - 0.5, tailEnd, 1, s.y - tailEnd);
@@ -1034,5 +1034,4 @@ folderHeaders.forEach(header => {
 });
     </script>
 </body>
-
 </html>
